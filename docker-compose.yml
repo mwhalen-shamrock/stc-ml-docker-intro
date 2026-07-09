@@ -11,6 +11,7 @@ services:
       - docker-network
     depends_on: 
       - fastapi
+
   fastapi:
     build: ./api
     image: stc-ml-fastapi-test:latest
@@ -26,6 +27,7 @@ services:
       - DB_NAME=${DB_NAME}
     depends_on: 
       - postgres
+      
   postgres:
     image: postgres:17-alpine
     container_name: postgres
