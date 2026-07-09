@@ -24,3 +24,4 @@ Access the streamlit UI on your local machine via [http://localhost:8501](http:/
 
 Access the API Swagger documentation via [http://localhost:8000/docs](http://localhost:8000/docs)
 
+Shut down all services with `CTRL + c`
