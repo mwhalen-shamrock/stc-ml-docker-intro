@@ -1,8 +1,0 @@
-services:
-  streamlit:
-    build: .
-    image: stc-ml-fastapi-test:latest
-    ports: 
-      - "8000:8000"
-    container_name: fastapi
-      
