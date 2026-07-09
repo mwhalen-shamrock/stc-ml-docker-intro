@@ -1,0 +1,50 @@
+services:
+  streamlit:
+    build: ./ui
+    image: stc-ml-streamlit-test:latest
+    ports:
+      - "8501:8501"
+    environment:
+      - API_HOSTNAME=${API_HOSTNAME}
+    container_name: streamlit
+    networks:
+      - docker-network
+    depends_on: 
+      - fastapi
+  fastapi:
+    build: ./api
+    image: stc-ml-fastapi-test:latest
+    ports:
+      - "8000:8000"
+    container_name: fastapi
+    networks:
+      - docker-network
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+    depends_on: 
+      - postgres
+  postgres:
+    image: postgres:17-alpine
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - docker-network
+
+volumes:
+  postgres_data:
+
+networks:
+  docker-network:
+    name: docker-network
+    driver: bridge

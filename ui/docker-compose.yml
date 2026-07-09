@@ -1,0 +1,10 @@
+services:
+  streamlit:
+    build: .
+    image: stc-ml-streamlit-test:latest
+    ports: 
+      - "8501:8501"
+    environment:
+      - API_HOSTNAME=${API_HOSTNAME}
+    container_name: streamlit
+      
