@@ -9,7 +9,7 @@ url = os.getenv("API_HOSTNAME")
 prediction_endpoint = "/predict"
 query_endpoint = "/query"
 
-st.title("My app")
+st.title("A Simple Application")
 
 button = st.button("Call the API")
 
