@@ -20,7 +20,7 @@ Launch the services
 docker compose up --build
 ```
 
-Access the streamlit UI on your local machine via [http://localhost:8501](). Test the prediction endpoint by clicking the `Call the API` button. Test the API --> Database connectivity with a simple query `SELECT 1 as foo;` and click `Query the database`.
+Access the streamlit UI on your local machine via [http://localhost:8501](http://localhost:8501). Test the prediction endpoint by clicking the `Call the API` button. Test the API --> Database connectivity with a simple query `SELECT 1 as foo;` and click `Query the database`.
 
-Access the API Swagger documentation via [http://localhost:8000/docs]()
+Access the API Swagger documentation via [http://localhost:8000/docs](http://localhost:8000/docs)
 
